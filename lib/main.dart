@@ -12,7 +12,14 @@ void main() => runApp(MaterialApp(
         children: <Widget>[
           new FlutterMap(
               options: new MapOptions(
-                  minZoom: 10.0, center: new LatLng(40.71, -74.00)),
+                minZoom: 10.0,
+                center: new LatLng(40.71, -74.00),
+                onLongPress: (point) => print("la postion est " +
+                    point.latitude.toString() +
+                    " et la latitude est: " +
+                    point.longitude.toString()),
+              ), //first view
+
               layers: [
                 new TileLayerOptions(
                     urlTemplate:
@@ -25,7 +32,7 @@ void main() => runApp(MaterialApp(
                       point: new LatLng(40.71, -74.00),
                       builder: (context) => new Container(
                             child: IconButton(
-                                icon: Icon(Icons.gps_fixed),
+                                icon: Icon(Icons.flag),
                                 onPressed: () {
                                   print('Marker tapped!');
                                 }),
